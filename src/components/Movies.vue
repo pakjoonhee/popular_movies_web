@@ -6,6 +6,8 @@
           <p class="title">{{result.title}}</p>
         </div>
     </div>
+  
+
   </div>
 </template>
 <script>
@@ -35,10 +37,10 @@ export default {
     getMovieDetails(index) {
       console.log(index);
       var myProp = this.results[index];
-      this.$router.replace({name:'MovieDetails', params:{myProp}});
-      this.$router.push("/moviedetails");
+      this.$router.push({name:'MovieDetails', params:{Pid:index, Data:myProp}});
     }
-  }
+  },
+  
 }
 </script>
 

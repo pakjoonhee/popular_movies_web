@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <h1>{{results.title}}</h1>
     <p>{{'Overview: ' + results.overview}}</p>
@@ -9,24 +10,29 @@
     <p>{{'Video: '+ results.video}}</p>
     <p>{{'VoteAverage: ' + results.vote_average}}</p>
     <p>{{'VoteCount: ' + results.vote_count}}</p>
+    <h2>{{message}}</h2>
   </div>
 </template>
 <script>
 
 import axios from 'axios';
+import createPersistedState from 'vuex-persistedstate'
 export default {
     props:['myProp'],
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      results: this.myProp,
+      results: this.$route.params.Data,
     }
   },
   created() {
       
   },
-  methods: {
-      
+  computed: {
+    message() {
+      console.log(this.$store.state.message)
+      return this.$store.state.message;
+    }
   }
 }
 </script>

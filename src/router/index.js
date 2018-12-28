@@ -8,6 +8,10 @@ import MovieDetails from '@/components/MovieDetails'
 
 Vue.use(Router)
 
+const User = {
+  template: '<div>User</div>'
+}
+
 export default new Router({
   routes: [
     {
@@ -32,7 +36,7 @@ export default new Router({
       component: Movies
     },
     {
-      path: '/moviedetails',
+      path: '/movies/:Pid',
       name: 'MovieDetails',
       component: MovieDetails,
       props: true
