@@ -8,11 +8,9 @@ import MovieDetails from '@/components/MovieDetails'
 
 Vue.use(Router)
 
-const User = {
-  template: '<div>User</div>'
-}
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

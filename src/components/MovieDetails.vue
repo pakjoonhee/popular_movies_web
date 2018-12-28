@@ -6,7 +6,6 @@
     <p>{{'Popularity: ' + results.popularity}}</p>
     <p>{{'PosterPath: ' + results.poster_path}}</p>
     <p>{{'ReleaseDate: '+ results.release_date}}</p>
-
     <p>{{'Video: '+ results.video}}</p>
     <p>{{'VoteAverage: ' + results.vote_average}}</p>
     <p>{{'VoteCount: ' + results.vote_count}}</p>
