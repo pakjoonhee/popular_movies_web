@@ -1,19 +1,10 @@
 <template>
-  <div id="app">
-    <p>hello</p>
   <div>
-    <ul>
-      <li v-for="post in posts">
-        <h1>
-          {{post.title}}
-        </h1>
-        <p>
-          {{post.body}}
-        </p>
-      </li>
-    </ul>
+    <div class="row" v-for="(post,index) in posts" @click="getMovieDetails(index)">
+      <img class="poster" v-bind:src="'http://image.tmdb.org/t/p/w185/' + post.poster_path"/>
+      <p class="title">{{post.title}}</p>
+    </div>
   </div>
-</div>
 </template>
 <script>
 
@@ -23,16 +14,18 @@ export default {
   
   computed: mapState(['posts', 'loading']),
   created() {
-    console.log(this.$store)
-  	this.$store.dispatch('loadData') // dispatch loading
+  	this.$store.dispatch('loadData') 
   },
-  
-  
+  methods: {
+    getMovieDetails(index) {
+      var myProp = this.posts[index];
+      localStorage.setItem('movieDetails', JSON.stringify(myProp))
+      this.$router.push({name:'MovieDetails', params:{Pid:index, Data:myProp}});
+    }
+  }
 }
 </script>
-
 <style scoped>
-
 .row {
   display: inline-block;
   padding: 10px;
@@ -55,5 +48,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>
