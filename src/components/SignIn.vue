@@ -57,7 +57,9 @@ export default {
                   Logins : {
                       'cognito-idp.us-east-1.amazonaws.com/us-east-1_4ebk0jMfc' : result.getIdToken().getJwtToken()
                   }
+                  
               });
+              localStorage.setItem('token', JSON.stringify(result.getIdToken().getJwtToken()))
 
               AWS.config.credentials.refresh((error) => {
                   if (error) {

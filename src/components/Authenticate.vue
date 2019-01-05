@@ -19,7 +19,6 @@ export default {
   props:['myProp'],
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       code: '',
       username: this.myProp
     }
